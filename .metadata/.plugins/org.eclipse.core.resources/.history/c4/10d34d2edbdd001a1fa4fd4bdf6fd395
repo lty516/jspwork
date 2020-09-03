@@ -1,0 +1,8 @@
+package mybean.sample;
+
+import java.util.*;
+
+public class CalendarBean {
+	private Date today;
+	private Calendar cal;
+}

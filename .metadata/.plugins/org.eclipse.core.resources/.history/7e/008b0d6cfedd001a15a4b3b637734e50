@@ -1,0 +1,15 @@
+package mybean.index;
+
+import java.util.*;
+
+public class ParkingBean {
+	private ArrayList carList = new ArrayList();
+	
+	public void setEnter(String plate) {
+		Car car = new car(plate, System.currentTimeMillis());
+		carList.add(car);
+	}
+	public ArrayList getCarList() {
+		return carList;
+	}
+}

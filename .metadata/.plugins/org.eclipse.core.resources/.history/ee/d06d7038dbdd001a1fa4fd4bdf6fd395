@@ -1,0 +1,21 @@
+package mybean.simple;
+
+import java.util.*;
+
+public class CalendarBean {
+	private Date today;
+	private Calendar cal;
+
+	public CalendarBean() {
+		today = new Date();
+		cal = Calendar.getInstance();
+	}
+	
+	public String getToday() {
+		return today.toString();
+	}
+	public Int getYear() { return cal.get(Calendar.YEAR); }
+	public Int getMonth(){ return cal.get(Calendar.MONTH)+1; }
+	public Int getDate() { return cal.get(Calendar.DATE); }
+	
+}

@@ -1,0 +1,76 @@
+<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@page import="java.sql.*"%>
+<%
+request.setCharacterEncoding("euc-kr");
+   String b_num = request.getParameter("b_num");
+   String name = request.getParameter("b_name");
+   String email = request.getParameter("b_email");
+   String subject = request.getParameter("b_subject");
+   String content = request.getParameter("b_content");
+   String pass = request.getParameter("b_pass");
+
+   //out.println(b_num + "," +name + "," + email + "," + subject + "," + content + "," + pass);
+%>
+
+<%
+	request.setCharacterEncoding("euc-kr");
+	String name = request.getParameter("b_name");
+	String email = request.getParameter("b_email");
+	String homepage = request.getParameter("b_homepage");
+	String subject = request.getParameter("b_subject");
+	String content = request.getParameter("b_content");
+	String pass = request.getParameter("b_pass");
+	String ip = request.getParameter("b_ip");
+	
+	
+	//out.println(name +", " + email +", " + homepage + ", " + subject +", "  + content + ", " + pass + "," + ip);
+%>
+
+         <%
+   Connection con = null;
+   PreparedStatement stmt = null; //쿼리문과 데이터를 따로따로 전송 
+   ResultSet rs = null;
+   
+   String sql = null;
+   try{
+      Class.forName("com.mysql.jdbc.Driver");
+      String url = "jdbc:mysql://localhost:3306/jspdb";
+      con = DriverManager.getConnection(url, "root", "1111");
+      
+      sql = "select b_pass from tblBoard where b_num=?";
+      stmt = con.prepareStatement(sql);
+      
+      sql = "update tblboard set b_email=?, b_subject=?,b_content=? where b_num=?";
+      
+      stmt = con.prepareStatement(sql);
+      
+      stmt.setString(1,email);
+      stmt.setString(2,subject);
+      stmt.setString(3,content);
+      stmt.setString(4,b_num);
+      
+      stmt.executeUpdate();
+   }
+   catch(Exception err){
+      err.printStackTrace();
+   }
+   finally{
+      if( con != null){ con.close(); }
+      if( stmt != null){ stmt.close(); }
+      if( rs != null){ rs.close(); }
+   
+   }
+%>   
+
+<% 
+	//response.sendRedirect("List.jsp"); //자동으로 넘어가기 
+	
+	// 밑에는 수동으로 선택해서 이동
+%>
+<ul>
+	<li><a href="Post.jsp">글쓰기 페이지로 이동</a></li>
+	<li><a href="List.jsp">리스트페이지로 이동</a></li>
+</ul>
+
+
+

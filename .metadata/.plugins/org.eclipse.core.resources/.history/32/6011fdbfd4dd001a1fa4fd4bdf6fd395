@@ -1,0 +1,12 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+
+<%
+	String towhere = "kr.jsp";
+	String from = request.getRemoteAddr();
+	
+	if(from.startsWith("http://localhost:8080")) {
+		towhere = "en.jsp";
+	}
+%>
+
+<jsp:forward page="<%=towhere%>"/>

@@ -1,0 +1,52 @@
+<%@page import="java.sql.*"%>
+<%@ page contentType="text/html; charset=EUC-KR"%>
+<%
+	request.setCharacterEncoding("euc-kr");
+	String name = request.getParameter("b_name");
+	String email = request.getParameter("b_email");
+	String homepage = request.getParameter("b_homepage");
+	String subject = request.getParameter("b_subject");
+	String content = request.getParameter("b_content");
+	String pass = request.getParameter("b_pass");
+	
+	//out.println(name +", " + email +", " + homepage + ", " + subject +", "  + content + ", " +pass);
+%>
+
+         <%
+   Connection con = null;
+   Statement stmt = null;
+   ResultSet rs = null;
+   
+   try{
+      Class.forName("com.mysql.jdbc.Driver");
+      String url = "jdbc:mysql://localhost:3306/jspdb";
+      con = DriverManager.getConnection(url, "root", "1111");
+      
+      String sql = "select * from tblboard";
+      stmt = con.createStatement();
+      rs= stmt.executeQuery(sql);
+      
+      while(rs.next()){
+%>
+
+      <tr>
+      <td><%=rs.getInt("b_num") %></td>
+      <td><%=rs.getString("b_subject") %></td>
+      <td><%=rs.getString("b_name") %></td>
+      <td><%=rs.getString("b_regdate") %></td>
+      <td><%=rs.getInt("b_count") %></td>
+      </tr>         
+<%          
+      }
+   }
+   
+   catch(Exception err){
+      err.printStackTrace();
+   }
+   finally{
+      if( con != null){ con.close(); }
+      if( stmt != null){ stmt.close(); }
+      if( rs != null){ rs.close(); }
+   
+   }
+%>   

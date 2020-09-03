@@ -1,0 +1,47 @@
+<%@page import="myBean.index.Car"%>
+<%@page import="java.util.*"%>
+<%@ page contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <% request.setCharacterEncoding("utf-8"); %>
+   <jsp:useBean id="parking" class="myBean.index.ParkingBean" scope="application"/>
+   <jsp:setProperty property="enter" name="parking" param="enter"/> 
+   <h1>주차 관리 프로그램</h1>
+   <form method="post">
+      주차장에 들어온 차 번호 : <input type="text" name="enter"/> &nbsp;&nbsp;
+      <input type="submit" value="입차" />
+   </form>
+   
+   <form method="post">
+      주차장에서 나간 차 번호 : <input type="text" name="exit"/> &nbsp;&nbsp;
+      <input type="submit" value="출차" />
+   </form>
+   <hr/>
+   주차된 차량 목록<br><br>
+   <table border="1">
+      <tr>
+         <th>차량 번호</th> <th>입차 시간</th>
+      </tr>
+<%
+   ArrayList cars = parking.getCarList();
+   for(int i=0; i<cars.size(); i++){
+         Car car = (Car)cars.get(i);
+%>
+         <tr>   
+            <td><%=car.getPlateNumber() %></td>
+            <td><%=car.getParkingTime()%></td>
+         </tr>
+<%
+   }
+   
+%>         
+   </table>
+   <br>
+   총 주차대수 : <jsp:getProperty name="parking" property="counter"/>
+</body>
+</html>

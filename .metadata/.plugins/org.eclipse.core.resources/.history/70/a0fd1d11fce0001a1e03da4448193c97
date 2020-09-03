@@ -1,0 +1,26 @@
+<%@ page  contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+   String id = request.getParameter("mem_id");
+   String pw = request.getParameter("mem_pw");
+   String name = request.getParameter("mem_name");
+   String email = request.getParameter("mem_email");
+   String tel = request.getParameter("mem_tel");
+   String addr = request.getParameter("mem_addr");
+%>
+   <h2>당신이 입력한 내용입니다.</h2>
+		   아이디 : <%=id %><br>
+		   패스워드 : <%=pw %><br>
+		   이름 : <%=name %><br>
+		   이메일 : <%=email %><br>
+		   전화번호 : <%=tel %><br>
+		   주소 : <%=addr %><br>
+
+</body>
+</html>

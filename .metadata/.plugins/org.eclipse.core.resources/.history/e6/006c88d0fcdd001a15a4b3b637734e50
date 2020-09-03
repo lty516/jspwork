@@ -1,0 +1,11 @@
+package mybean.index;
+
+import java.util.ArrayList;
+
+public class ParkingBean {
+	private ArrayList carlist = new ArrayList();
+	
+	public void setEnter(String plate) {
+		
+	}
+}

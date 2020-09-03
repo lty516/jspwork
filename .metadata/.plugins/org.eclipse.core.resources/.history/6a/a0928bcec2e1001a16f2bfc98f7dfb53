@@ -1,0 +1,10 @@
+<%@ page contentType="text/html; charset=EUC-KR"%>
+
+<%
+	String b_num = request.getParameter("b_num");
+	String b_name = request.getParameter("b_name");
+	String b_email = request.getParameter("b_email");
+	String b_subject = request.getParameter("b_subject");
+	String b_content = request.getParameter("b_content");
+	String b_pass= request.getParameter("b_pass");
+%>

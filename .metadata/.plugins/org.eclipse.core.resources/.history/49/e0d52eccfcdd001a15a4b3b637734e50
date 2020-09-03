@@ -1,0 +1,5 @@
+package mybean.index;
+
+public class ParkingBean {
+
+}

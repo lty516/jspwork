@@ -1,0 +1,16 @@
+<!-- http://localhost:8080/my2/index.html -->
+<!-- &nbsp; : 스페이스바 같은 것 -->
+
+<html>
+   <body>
+      <h1>놀 website에 오신 것을 환영해.</h1>
+      <hr/>
+      <img src="images/tomcat.png"/>
+      <br><br><br>
+      <ul>
+      <li>
+      <a herf "MyServlet/Info">request 헤더 정보 </a>
+      </li>
+      </ul>
+   </body>
+</html>

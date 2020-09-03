@@ -1,0 +1,20 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+	<body>
+<%--
+	<%
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+	%>
+		오늘은 <%= today %> 입니다.<br>
+		<%=cal.get(Calendar.YEAR)%> 년&nbsp;&nbsp;
+		<%=cal.get(Calendar.MONTH)+1%> 월&nbsp;&nbsp;
+		<%=cal.get(Calendar.DATE)%> 일 입니다;
+ --%>
+	</body>
+</html>

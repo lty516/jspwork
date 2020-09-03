@@ -1,0 +1,26 @@
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>JDBC 드라이버 테스트</h2>
+<%
+	Connection con = null;
+
+	Class.forName("com.mysl.jdbc.Driver");
+	String url = "java:mysql://localhost:3306/world";
+	con = DriverManager.getConnection(url,"root","1111");
+	
+	if(con != null){
+		out.println("연결성공");
+	}
+	else{
+		out.println("연결실패");
+	}
+%>
+</body>
+</html>
